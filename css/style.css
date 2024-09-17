@@ -19,7 +19,38 @@ h1 {
 form {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 40px;
+}
+
+.form_trade_group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.montant-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.label_montant {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+input#amount {
+  font-size: 3rem;
+  text-align: center;
+}
+
+#resultat {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600;
+  color: #000;
 }

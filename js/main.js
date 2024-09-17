@@ -1,20 +1,44 @@
 const form = document.getElementById('form');
-const url = " https://v6.exchangerate-api.com/v6/39006265cb1ce51335d8eb73/pair"
+const amountInput = document.getElementById('amount');
+const resultatDiv = document.getElementById('resultat'); 
+const url = " https://v6.exchangerate-api.com/v6/39006265cb1ce51335d8eb73/pair" 
+const selects = document.querySelectorAll('select');
 
-form.addEventListener('submit', submitForm);
+const devises = {
+  "usd": {
+    "name": "United States Dollar",
+    "symbol": "$"
+  },
+  "eur": {
+    "name": "Euro",
+    "symbol": "€"
+  },
+  "jpy": {
+    "name": "Japanese Yen",
+    "symbol": "¥"
+  }
+}
 
-async function submitForm(e) {
-  e.preventDefault();
+// ------- EVENTS ------- //
+amountInput.addEventListener('input', () => submitForm());
+
+selects.forEach(select => {
+  select.addEventListener('change', () => submitForm());
+})
+
+// ------- FUNCTIONS ------- //
+async function submitForm() {
   const formData = new FormData(form);
   const { amount, from, to } = Object.fromEntries(formData.entries())
-  console.log(amount, from, to);
   
   if (from === to) {
     alert('Please select different currencies');
+    return;
   }
 
   if (amount === '' || amount === 0) {
     alert('Please enter a valid amount');
+    return;
   }
 
   try {
@@ -27,10 +51,10 @@ async function submitForm(e) {
     const { conversion_rate } = await response.json();
     const result = amount * conversion_rate;
 
-    console.log(result);
+    resultatDiv.textContent = `${amount} ${devises[from].symbol} = ${result} ${devises[to].symbol}`;
     
   } catch (error) {
-    return new Error(error);
+    return alert(error);
   }
 
 }
