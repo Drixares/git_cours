@@ -5,21 +5,6 @@ const url = " https://v6.exchangerate-api.com/v6/39006265cb1ce51335d8eb73/pair"
 const selects = document.querySelectorAll('select');
 const switchButton = document.getElementById('switch');
 
-const devises = {
-  "usd": {
-    "name": "United States Dollar",
-    "symbol": "$"
-  },
-  "eur": {
-    "name": "Euro",
-    "symbol": "€"
-  },
-  "jpy": {
-    "name": "Japanese Yen",
-    "symbol": "¥"
-  }
-}
-
 // ------- EVENTS ------- //
 amountInput.addEventListener('input', () => submitForm());
 
@@ -54,9 +39,11 @@ async function submitForm() {
     const { conversion_rate } = await response.json();
     const result = amount * conversion_rate;
 
-    resultatDiv.textContent = `${amount} ${devises[from].symbol} = ${result} ${devises[to].symbol}`;
+    resultatDiv.textContent = `${amount} ${from} = ${result} ${to}`;
     
   } catch (error) {
+    console.error(error);
+    
     resultatDiv.textContent = "";
     document.getElementById("error").textContent = "Something went wrong";
     return;
@@ -72,3 +59,28 @@ function switchDevises() {
 
   submitForm();
 }
+
+async function getOptions() {
+
+  try {
+    const response = await fetch("https://v6.exchangerate-api.com/v6/39006265cb1ce51335d8eb73/codes");
+
+    if (!response.ok) {
+       new Error("Something went wrong");
+    }
+    const data = await response.json();
+
+    selects.forEach(select => {
+      select.innerHTML = data.supported_codes.map(code => {
+        return `<option value="${code[0]}">${code[1]}</option>`
+      })
+    });
+
+  } catch (error) {
+    console.error(error);
+    return;
+  }
+}
+
+// ------- START ------- //
+getOptions();
