@@ -30,14 +30,8 @@ selects.forEach(select => {
 async function submitForm() {
   const formData = new FormData(form);
   const { amount, from, to } = Object.fromEntries(formData.entries())
-  
-  if (from === to) {
-    alert('Please select different currencies');
-    return;
-  }
 
-  if (amount === '' || amount === 0) {
-    alert('Please enter a valid amount');
+  if (Number(amount) === 0 || amount === "") {
     return;
   }
 
@@ -45,7 +39,8 @@ async function submitForm() {
     const response = await fetch(`${url}/${from}/${to}`)
     
     if (!response.ok) {
-      throw new Error('Something went wrong');
+      console.error("Something went wrong");
+      return;      
     }
 
     const { conversion_rate } = await response.json();
@@ -54,7 +49,7 @@ async function submitForm() {
     resultatDiv.textContent = `${amount} ${devises[from].symbol} = ${result} ${devises[to].symbol}`;
     
   } catch (error) {
-    return alert(error);
+    console.error(error);
+    return;
   }
-
 }
