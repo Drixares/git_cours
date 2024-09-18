@@ -4,16 +4,30 @@
   box-sizing: border-box;
 }
 
-html, body, .container {
-  height: 100%;
-  overflow-x: hidden;
+body {
+  background-color: grey;
+}
+
+html, body, footer {
   font-family: "Roboto", sans-serif;
 }
 
-h1 {
-  text-align: center;
-  padding-top: 150px;
-  padding-bottom: 75px;
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-size: 3rem;
+}
+
+.logo p {
+  font-weight: 900;
+  color: rgb(134, 90, 121);
+}
+
+.logo span {
+  font-weight: lighter ;
+  color: white;
+  font-size: 2rem;
 }
 
 form {
@@ -29,7 +43,7 @@ form {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 50px;
+  gap: 100px;
 }
 
 .montant-group {
@@ -43,8 +57,9 @@ form {
   margin-top: 4px;
 }
 
+
 input#amount {
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
 }
 
@@ -53,4 +68,105 @@ input#amount {
   text-align: center;
   font-weight: 600;
   color: #000;
+} 
+
+  .banner {
+    display: flex;
+    height: 30vh;
+    background-color: rgb(35, 35, 131);
+    justify-content: center;
+    /* align-items: center; */
+    color: white;
+  }
+
+  .banner h1 {
+    font-size: 2em;
+    margin-top: 70px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  .box {
+    height: 300px;
+    width: 900px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50%);
+  }
+
+  .tableau {
+    height: 300px;
+    width: 100%;
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  table {
+    width: 40%;
+    background-color: aliceblue;
+  }
+  tr th {
+    padding: 20px;
+  }
+
+  tr td {
+    padding: 20px;
+    text-align: center;
+  }
+  td img {
+    margin-right: 20px;
+    border-radius: 15%;
+  }
+
+
+
+  footer {
+    height: 300px;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+  }
+
+  .barre {
+    display: flex;
+    width: 2px;
+    height: 200px;  
+    background-color: black; 
+    margin: 20px;
+    align-items: center;
+  }
+
+  .logo_footer {
+    width: 20%;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .logo_footer p {
+  font-weight: 900;
+  color: grey;
+}
+
+.logo_footer span {
+  font-weight: lighter ;
+  color: white;
+  font-size: 2rem;
+}
+
+button#switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
 }
