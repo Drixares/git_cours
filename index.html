@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
-  <title>Projet Git - Convertsseur de devises</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Projet Git - Convertsseur de devises</title>
+  </head>
 
-<header>
+  <header>
     <div class="logo">
-        <p>Safe<span>xchange</span></p>
+      <p>Safe<span>xchange</span></p>
     </div>
-</header>
-<body>
-  
+  </header>
+  <body>
     <div class="banner">
       <h1>Convertisseur de devises</h1>
     </div>
     <div class="container">
-        <div class="box">
-          <form method="get" id="form">
-            <div class="title">
-                <h2>Selectionnez votre montant</h2>
+      <div class="box">
+        <form method="get" id="form">
+          <div class="title">
+            <h2>Selectionnez votre montant</h2>
+          </div>
+          <div class="form-group montant-group">
+            <input
+              type="number"
+              id="amount"
+              name="amount"
+              min="0"
+              value="0"
+              required
+            />
+          </div>
+          <div class="form_trade_group">
+            <div class="form-group">
+              <label for="from">De</label>
+              <select id="from" name="from" required>
+                <option value="eur" selected>Euro</option>
+                <option value="usd">Dollar américain</option>
+                <option value="jpy">Yen japonais</option>
+              </select>
             </div>
-            <div class="form-group montant-group">
-              <input type="number" id="amount" name="amount" min="0" value="0" required>
+            <button id="switch" type="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-left-right"
+              >
+                <path d="M8 3 4 7l4 4" />
+                <path d="M4 7h16" />
+                <path d="m16 21 4-4-4-4" />
+                <path d="M20 17H4" />
+              </svg>
+            </button>
+            <div class="form-group">
+              <label for="to">À</label>
+              <select id="to" name="to" required>
+                <option value="eur">Euro</option>
+                <option value="usd" selected>Dollar américain</option>
+                <option value="jpy">Yen japonais</option>
+              </select>
             </div>
-            <div class="form_trade_group">
-              <div class="form-group">
-                <label for="from">De</label>
-                <select id="from" name="from" required>
-                  <option value="eur">Euro</option>
-                  <option value="usd">Dollar américain</option>
-                  <option value="jpy">Yen japonais</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="to">À</label>
-                <select id="to" name="to" required>
-                  <option value="eur">Euro</option>
-                  <option value="usd">Dollar américain</option>
-                  <option value="jpy">Yen japonais</option>
-                </select>
-              </div>
-            </div>
-            <div id="resultat"></div>
-            <!-- <button type="submit">Submit</button> -->
-          </form>
-        </div>
+          </div>
+          <div id="error"></div>
+          <div id="resultat"></div>
+          <!-- <button type="submit">Submit</button> -->
+        </form>
+      </div>
     </div>
-    
-
     
     <div class="direct">
       <h2>Taux de change en direct</h2>
@@ -111,12 +135,9 @@
         <p>
             Le convertisseur de devises Safexchange vous permet de vérifier les derniers taux de change moyens de soumission/de demande et de convertir l'ensemble des principales devises mondiales. Les Safexchange Rates ™ sont des taux de change compilés provenant des principales sources de données de marché.</p>
       </div>
-
-
     </article>
 
     <footer>
-
       <div class="logo_footer">
         <p>Safe<span>xchange</span></p>
       </div>
@@ -126,10 +147,8 @@
         <p>contact</p>
         <p>conditions d'utilisation</p>
       </div>
-
     </footer>
 
-
-  <script src="/js/main.js"></script>
-</body>
+    <script src="/js/main.js"></script>
+  </body>
 </html>
