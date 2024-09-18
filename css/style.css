@@ -4,31 +4,12 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: grey;
-}
 
 html, body, footer {
   font-family: "Roboto", sans-serif;
 }
 
-.logo {
-  position: absolute;
-  top: 20px;
-  left: 40px;
-  font-size: 3rem;
-}
-
-.logo p {
-  font-weight: 900;
-  color: rgb(134, 90, 121);
-}
-
-.logo span {
-  font-weight: lighter ;
-  color: white;
-  font-size: 2rem;
-}
+/* FORM */
 
 form {
   width: 100%;
@@ -70,10 +51,12 @@ input#amount {
   color: #000;
 } 
 
+/* BANNER */
+
   .banner {
     display: flex;
     height: 30vh;
-    background-color: rgb(35, 35, 131);
+    background-color: #000;
     justify-content: center;
     /* align-items: center; */
     color: white;
@@ -100,46 +83,79 @@ input#amount {
     transform: translateY(-50%);
   }
 
+
+  .logo {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-size: 3rem;
+}
+
+.logo p {
+  font-weight: 900;
+  color: grey;
+}
+
+.logo span {
+  font-weight: lighter ;
+  color: white;
+  font-size: 2rem;
+}
+
+  h2 {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  /* TABLEAU */
+
+  .direct {
+    transform: translateY(-25%);
+  }
   .tableau {
     height: 300px;
     width: 100%;
-    background-color: lightcoral;
     display: flex;
     justify-content: center;
-
   }
 
   table {
     width: 40%;
-    background-color: aliceblue;
+    border-radius: 10px;
   }
+
   tr th {
     padding: 20px;
+    border: 1px solid black;
   }
 
   tr td {
     padding: 20px;
     text-align: center;
+    border: 1px solid black;
   }
   td img {
     margin-right: 20px;
     border-radius: 15%;
+    transform: translateY(20%);
   }
 
-
+  /* FOOTER */
 
   footer {
     height: 300px;
-    background-color: lightblue;
+    background-color: #000;
     display: flex;
     align-items: center;
+    color: white;
+    flex-wrap: wrap;
   }
 
   .barre {
     display: flex;
     width: 2px;
     height: 200px;  
-    background-color: black; 
+    background-color: white; 
     margin: 20px;
     align-items: center;
   }
@@ -148,6 +164,7 @@ input#amount {
     width: 20%;
     text-align: center;
     font-size: 3rem;
+    /* padding-right: 25px ; */
   }
 
   .logo_footer p {
@@ -159,4 +176,54 @@ input#amount {
   font-weight: lighter ;
   color: white;
   font-size: 2rem;
+}
+
+.footer2 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer2 p {
+  padding: 20px;
+}
+
+.footer2 p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* ARTICLE */
+
+article {
+  background-color: rgb(228, 225, 225);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+#margintop {
+  margin-top: 100px;
+}
+
+.article-item {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.article-item h2, .article-item h3, .article-item img {
+  margin-bottom: 30px;
+}
+
+.article-item p {
+  margin-bottom: 80px;
+}
+
+.article-item h3 {
+  font-size: 1.2  rem;
 }
